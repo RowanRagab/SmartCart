@@ -1,0 +1,23 @@
+<div *ngIf="isLoading" class="spinner pt-5 d-flex justify-content-center align-items-center vh-100">
+    <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+      <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+      <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let brand of brands" class="col-md-2 pt-5 brands cursor-pointer rounded-3">
+            <img class="w-100 rounded-3 h-100 " [src]="brand?.image" alt="">
+            <div>
+                <h4 class="text-center text-main">{{brand?.name}}</h4>
+            </div>
+        </div>
+    </div>
+</div>

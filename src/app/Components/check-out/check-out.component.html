@@ -1,0 +1,16 @@
+<div class="container pt-5 ">
+    <!-- <div [ngIf]="shippingAddress.valid" class="error alert alert-danger">check Your Cart if it's empty</div> -->
+    <h2 class="text-success text-center p-5"><i class="fa-brands fa-cc-visa pe-3 "></i>Payment Form</h2>
+    <form class="form-control p-5 shadow" (ngSubmit)="handleShippingAddress()" [formGroup]="shippingAddress">
+        <label for="details">Details :</label>
+        <input class="form-control shadow-none" formControlName="details" type="text" id="details">
+
+        <label for="phone">Phone :</label>
+        <input class="form-control shadow-none" formControlName="phone" type="tel" id="phone">
+
+        <label for="city">City :</label>
+        <input class="form-control shadow-none" formControlName="city" type="text" id="city">
+
+        <button class="btn btn-success m-auto d-block mt-4" type="submit"><i class="fa-solid fa-sack-dollar"></i>    Pay</button>
+    </form>
+</div>

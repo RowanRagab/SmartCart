@@ -1,0 +1,12 @@
+.search input{
+    box-shadow: none !important;
+}
+.search input:focus{
+   border: 1.5px solid var(--main-color) !important;
+   color: rgb(0, 128, 0);
+}
+
+.container .bigSlide img{
+    width: 100%;
+
+}

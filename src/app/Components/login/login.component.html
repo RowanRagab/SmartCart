@@ -1,0 +1,28 @@
+<div class="container pt-5 ">
+    <form class="p-5" (submit)="login()" [formGroup]="loginForm">
+        <div *ngIf="errorMsg != null" class="alert alert-danger">
+            {{errorMsg}}
+        </div>
+        <!-- user email -->
+        <label class="p-2 pb-3" for="userEmail" >Your Email : </label>
+        <input class="form-control" type="email" id="userEmail" placeholder="Enter Your Email..."  formControlName="email">
+        <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.status=='INVALID'" class="text-danger pt-2 ps-2">
+            <p *ngIf="loginForm.get('email')?.getError('required')">Your Email is Required</p>
+            <p *ngIf="loginForm.get('email')?.getError('email')">Please Enter valid email Maybe you forgot @</p>
+        </div>
+        <!-- password -->
+        <label class="p-2 pb-3" for="password" >Your Password : </label>
+        <input class="form-control" type="password" id="password" placeholder="Enter Your password..."  formControlName="password">
+        <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.status=='INVALID'" class="text-danger pt-2 ps-2">
+            <p *ngIf="loginForm.get('password')?.getError('required')">Your password is Required</p>
+            <p *ngIf="loginForm.get('password')?.getError('minlength')">Your password min Length is 6</p>
+            <p *ngIf="loginForm.get('password')?.getError('maxlength')">Your password max Length is 30</p>
+        </div>
+        <!-- submit btn -->
+        <button [disabled]="loginForm.invalid" class="btn mainColorbg text-white mt-5 ms-auto d-block" type="submit">
+            <span  *ngIf="!isLoading" >LogIn</span>
+           <span  *ngIf="isLoading" class="spinner-border text-light"></span></button>
+          
+    </form>
+</div>
+

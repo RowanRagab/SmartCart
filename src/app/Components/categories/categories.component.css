@@ -1,0 +1,11 @@
+.catContent{
+    color: white;
+opacity: 0;
+transition: all .5s;
+}
+.catContent:hover{
+   opacity: 1;
+}
+img{
+    height: 250px;
+}

@@ -1,0 +1,29 @@
+
+<div  class="pt-5 container  py-4 my-4" *ngFor="let allorders of orders; let i = index">
+    <div class=" d-flex justify-content-between align-items-center border-bottom p-3 bg-light">
+        <div>
+    <h3 class=" text-main">Order : {{i + 1}}</h3>
+    <h5 class="text-main">TotalPrice: <span class="mainColorfont"> {{allorders?.totalOrderPrice|currency}}</span> </h5>
+</div>
+</div>
+<div class="row align-items-center border-bottom py-3 shadow-sm my-3 shadow-sm rounded-3 bg-light mx-0" *ngFor="let product of allorders?.cartItems , let index = index">
+    <div class="col-md-2 shadow-sm rounded-3">
+        <img [src]="product.product.imageCover" class="w-100">
+    </div>
+    <div class="col-md-10 d-flex justify-content-between">
+        <div>
+        <h5 class="fw-bold">{{product.product.title}}</h5>
+        <h6 class="text-main fs-4">Price: <span class="mainColorfont">{{product.price}}</span></h6>
+    </div>
+    <div class="d-flex  align-items-center">
+     
+        <span class="mx-2 h5 ">Count : {{product.count}}</span>
+       
+    </div>
+    </div>
+   
+</div>
+<div class=" d-flex justify-content-between align-items-center border-bottom p-3 bg-light">
+<div><h5 class="text-muted h4 fw-bolder">Paid at<span class="text-main h5"> : {{allorders.paidAt}}</span></h5></div>
+</div>
+</div>

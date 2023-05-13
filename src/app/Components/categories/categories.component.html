@@ -1,0 +1,27 @@
+<div *ngIf="isLoading" class="spinner d-flex justify-content-center align-items-center vh-100">
+    <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+      <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+      <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+</div>
+
+
+<div  *ngIf="!isLoading" class="container pt-5 ">
+    <div class="row p-5 g-5">
+        <div routerLink="/category" *ngFor="let category of allCategories" class="col-md-4 cursor rounded ">
+            <div class="imgCat shadow position-relative">
+                <img class="w-100" [src]="category.image" alt="">
+                <div class="catContent rounded d-flex align-items-center justify-content-center bg-success bg-opacity-75 end-0 start-0 position-absolute top-0 bottom-0 ">
+                    <h3 class="fw-bold">{{category.name}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

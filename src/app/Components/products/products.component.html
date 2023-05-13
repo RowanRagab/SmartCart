@@ -1,0 +1,52 @@
+<div *ngIf="isLoading" class="spinner d-flex justify-content-center align-items-center vh-100">
+    <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+      <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+      <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+</div>
+
+<div *ngIf="!isLoading" class="container pt-5 ">
+    <div class="row">
+        <div class="imgSlider col-md-4 h-25 d-flex flex-column">
+            <img class="w-100 rounded m-1 shadow" src="../../../assets/images/fruit.jpg" alt="">
+            <img class="w-100 rounded m-1 shadow" src="../../../assets/images/download.jpg" alt="">
+        </div>
+        <div class="col-md-8 rounded h-50 ">
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide><img class="w-100" src="../../../assets/images/grocery-banner-2.jpeg"
+                        alt=""></ng-template>
+                <ng-template carouselSlide><img class="w-100" src="../../../assets/images/slider-2.jpeg"
+                        alt=""></ng-template>
+                <ng-template carouselSlide><img class="w-100" src="../../../assets/images/grocery-banner.png"
+                        alt=""></ng-template>
+            </owl-carousel-o>
+        </div>
+    </div>
+    <div class="search shadow">
+        <input [(ngModel)]="searchTerm" type="text" class="form-control mt-4 mb-4 " placeholder="Search by product name...">
+    </div>
+    <div class="container">
+        <div class="row gx-3">
+            <div *ngFor="let product of products | searchByProductName:searchTerm"
+                class="product cursor rounded col-md-2 position-relative p-3 overflow-hidden">
+                <div [routerLink]="['/product/', product.id]" class="content">
+                    <img class="w-100 m-1 rounded" [src]="product.imageCover" alt="">
+                    <h6 class="mainColorfont ">{{product.subcategory.name}}</h6>
+                    <h5>{{product.title.split(" ").slice(0,3).join(" ")}}</h5>
+                    <div class="pric d-flex justify-content-sm-between">
+                        <span>{{product.price | currency}}</span>
+                        <span><i class="fa-solid fa-star stars"></i> {{product.ratingsAverage}}</span>
+                    </div>
+                </div>
+                <button (click)="addProductToCart(product.id)" class="btn m-auto d-block mainColorbg text-white mt-4">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+</div>

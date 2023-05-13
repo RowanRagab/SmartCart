@@ -1,0 +1,32 @@
+
+<div class="container pt-5 mt-5">
+     <h1 class="text-danger d-flex justify-content-center align-items-center vh-100 flex-column" *ngIf="emptyCartMsg"><i class="fa-regular fa-circle-xmark p-4 text-body-tertiary"></i> Your cart is empty </h1>
+    <h3  *ngIf="!emptyCartMsg" class="p-5">My total Cart products price : <span class="text-success"> {{cart?.totalCartPrice | currency}}</span></h3>
+    <h4 *ngIf="!emptyCartMsg" (click)="clearCartProduct(); cartProducts=[]"><button class="btn text-danger d-block ms-auto"><i class="fa-regular fa-trash-can"></i>  Clear My Cart</button></h4>
+    <div *ngFor="let productsArr of cartProducts " class=" shadow-sm rounded-3 row p-4 m-auto">
+        <div class="col-md-2 ">
+            <img class="w-75 m-auto d-block shadow rounded-3" [src]="productsArr?.product.imageCover" alt="">
+        </div>
+        <div class="col-md-4 p-3 d-flex justify-content-center align-items-start flex-column">
+            <h5>{{productsArr?.product.title}}</h5>
+            <div class=" d-flex justify-content-center align-items-start">
+                <p>{{productsArr?.price | currency}}</p>
+            <span class="ps-5"><i class="fa-solid fa-star stars"></i>  {{productsArr?.product.ratingsAverage}}</span>
+            </div>
+        </div>
+        <div class="col-md-2 p-3 d-flex justify-content-center align-items-center ">
+            <span class="fst-italic">{{productsArr?.product.brand.name}}</span>
+
+        </div>
+        <div class="col-md-4 p-3 text-center d-flex justify-content-center align-items-center">
+            <button (click)="updateProductQuantity(productsArr?.product.id,productsArr.count+1); productsArr.count = productsArr.count+1" class="btn btn-outline-success">+</button>
+            <span class="p-3">{{productsArr.count}}</span>
+            <button (click)="updateProductQuantity(productsArr?.product.id,productsArr.count-1); productsArr.count = productsArr.count-1" class="btn btn-outline-danger">-</button>
+        </div>
+        <button (click)="removeProductFromCart(productsArr?.product.id)" class="btn text-danger"> <i class="fa-regular fa-trash-can"></i>  Remove</button>
+    </div>
+
+    <div  *ngIf="!emptyCartMsg" class="m-5 ">
+        <button routerLink="/checkOut" class=" shadow btn mainColorbg text-white p-2 d-block m-auto w-50"><i class="fa-brands fa-cc-visa fa-lg" style="color: #1f2b51;"></i>  OnLine Payment </button>
+    </div>
+</div>

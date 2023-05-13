@@ -1,0 +1,15 @@
+body{
+background: linear-gradient(0deg, rgba(10,173,0,1) 15%, rgba(255,255,255,1) 81%);
+}
+h1{
+    font-weight: 800;
+}
+.homeContent ul li{
+color: white;
+opacity: .7;
+}
+
+.homeContent ul li:hover{
+    color: rgb(0, 65, 0) ;
+    border-radius: 50%;
+}
