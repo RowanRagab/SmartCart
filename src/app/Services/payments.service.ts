@@ -9,7 +9,7 @@ export class PaymentsService {
 
   constructor(private _HttpClient:HttpClient) { }
   onlinePayment(shippingAddress:any , cartId:string):Observable<any>{
-return this._HttpClient.post(`https://route-ecommerce-app.vercel.app/api/v1/orders/checkout-session/${cartId}?url=http://localhost:4200`,
+return this._HttpClient.post(`https://route-ecommerce-app.vercel.app/api/v1/orders/checkout-session/${cartId}?url=https://smart-cart-pivy.vercel.app`,
 {
   shippingAddress:shippingAddress
 },
