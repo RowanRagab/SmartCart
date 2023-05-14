@@ -4,7 +4,6 @@ import { HomeComponent } from './Components/Home/home/home.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { SpesificProductComponent } from './Components/spesific-product/spesific-product.component';
 import { CategoriesComponent } from './Components/categories/categories.component';
-import { SpesificCategoryComponent } from './Components/spesific-category/spesific-category.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { RigesterComponent } from './Components/rigester/rigester.component';
 import { LoginComponent } from './Components/login/login.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
   {path:"brands" , canActivate:[AuthGuard] , component:BrandsComponent},
   {path:"categories" , canActivate:[AuthGuard] , component:CategoriesComponent},
   {path:"product/:id" , canActivate:[AuthGuard] , component:SpesificProductComponent},
-  {path:"category" , canActivate:[AuthGuard] , component:SpesificCategoryComponent},
   {path:"cart" , canActivate:[AuthGuard] , component:CartComponent},
   {path:"allorders" , canActivate:[AuthGuard] , component:AlloredersComponent},
   {path:"checkOut" , canActivate:[AuthGuard] , component:CheckOutComponent},
