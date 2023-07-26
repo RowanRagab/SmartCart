@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/Services/products.service';
-import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-alloreders',
